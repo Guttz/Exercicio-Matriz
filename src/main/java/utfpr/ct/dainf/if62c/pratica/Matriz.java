@@ -49,15 +49,11 @@ public class Matriz {
         
        int i, j;
        
-       Matriz Soma = new Matriz(3, 3);
-      
-       double[][] matSoma = Soma.getMatriz();
+       Matriz Soma = new Matriz(mat.length, mat[0].length);
        
-       double mat2[][] = m.getMatriz();
-       
-        for (i = 0; i < 3 ; i++)
-            for(j=0; j< 3; j++) {
-                matSoma[i][j] = mat2[i][j] + mat[i][j];
+        for (i = 0; i < mat.length ; i++)
+            for(j=0; j< mat[0].length; j++) {
+                Soma.mat[i][j] = mat[i][j] + m.mat[i][j];
             
         }
         
@@ -71,16 +67,13 @@ public class Matriz {
      */
     public Matriz prod(Matriz m) {
         int i, j, k;
-        
-       Matriz Produto = new Matriz(3,3);
        
-       double prod[][] = Produto.getMatriz();
-       double mat2[][] = m.getMatriz();
-              
-        for (i=0; i < 3; i++)
-            for (j = 0; j < 3; j++)
-                for(k = 0 ; k < 3 ; k++) {
-                    prod[i][j] += mat[i][k] * mat2[k][j];
+       Matriz Produto = new Matriz(mat.length, m.mat[0].length);
+       
+        for (i=0; i < mat.length; i++)
+            for (j = 0; j < m.mat[0].length; j++)
+                for(k = 0 ; k < mat[0].length ; k++) {
+                    Produto.mat[i][j] += mat[i][k] * m.mat[k][j];
                 }
        
         return Produto;
